@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import WorldCup from "./components/WorldCup";
+import SelectCountry from "./components/SelectCountry";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState("");
+  const getState = (val) => {
+    setCount(val);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WorldCup valCountry={count} />
+      <SelectCountry func={getState} />
     </div>
   );
 }
